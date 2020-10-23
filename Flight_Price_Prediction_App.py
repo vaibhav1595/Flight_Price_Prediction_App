@@ -79,7 +79,6 @@ X_Destination = pd.get_dummies(data=X_Destination, drop_first=True)
 X_data = pd.concat([X, X_Airline, X_Source, X_Destination], axis = 1)
 X_data.drop(['Airline', 'Source', 'Destination'], axis = 1, inplace = True)
 
-
 # Create dataframe obtained from input features similar to dataset
 data = {'Airline': Airline,
         'Source': Source,
@@ -125,9 +124,12 @@ model.fit(Final_copy[1:], y)
 # Apply Model to Make Prediction
 prediction = model.predict(Final_copy[:1])
 
-st.header('Price Prediction')
-st.write(prediction)
+st.write('''
+### The Predicted Price of this Flight Ticket is ₹''', round(prediction[0],2))
 st.write('---')
 
 # RemoveWARNING: :
 st.set_option('deprecation.showPyplotGlobalUse', False)
+
+# success message
+st.success('This is a success message!')
