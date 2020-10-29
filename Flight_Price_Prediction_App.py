@@ -124,12 +124,12 @@ model.fit(Final_copy[1:], y)
 # Apply Model to Make Prediction
 prediction = model.predict(Final_copy[:1])
 
-st.write('''
-### The Predicted Price of this Flight Ticket is ₹''', round(prediction[0],2))
-st.write('---')
+if st.button('Predict'):
+    st.write('''
+    ### The Predicted Price of this Flight Ticket is ₹''', round(prediction[0],2))
+    # success message
+    st.success('This is a success message!')
+    st.empty()
 
 # RemoveWARNING: :
 st.set_option('deprecation.showPyplotGlobalUse', False)
-
-# success message
-st.success('This is a success message!')
